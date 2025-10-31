@@ -52,12 +52,17 @@ Good Luck!
             Console.SetCursorPosition(proposedPosition.leftDelta, proposedPosition.topDelta);
         }
 
+        bool playerWon = mapRows[proposedPosition.topDelta - verticalOffset][proposedPosition.leftDelta] == '*';
+        if (playerWon){
+            Console.Clear();
+            Console.WriteLine("YOU WON!");
+            continuePlaying = false;
+        }
+
     } while(continuePlaying);
 };
 
 Main();
-
-// (Detect the win) Break out of the loop, clear the screen, and print a congratulatory message if the current cell (i.e. mazeRows[Console.CursorTop][Console.CursorLeft] is '*'). (Make sure the program works and commit the changes to your repo.)
 
 // (Enforce walls) Update your TryMove code to additionally enforce that no move is taken if it would land the player on a '#' cell. (Make sure the program works and commit the changes to your repo.)
 
